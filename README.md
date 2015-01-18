@@ -1,3 +1,5 @@
+# sitePersoSF2
+Site perso sous symfony2
 Symfony Standard Edition
 ========================
 
