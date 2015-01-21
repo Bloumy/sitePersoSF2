@@ -6,10 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+/**
+ * @Route("/contact")
+ */
 class MapController extends Controller
 {
     /**
-     * @Route("/contact", name="map_contact")
+     * @Route("/map", name="map_contact")
      * @Template()
      */
     public function indexAction()
