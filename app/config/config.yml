@@ -36,6 +36,7 @@ twig:
 knp_menu:
     twig:
         template: BraincraftedBootstrapBundle:Menu:bootstrap.html.twig
+#        template: ::knp_menu_base.html.twig
         
 knp_paginator: 
     template:

@@ -35,7 +35,7 @@
         "twbs/bootstrap": "3.0.*",
         "jquery/jquery":  "1.11.1",
         "oyejorge/less.php": "~1.5",
-        "knplabs/knp-menu" : "~2.0",
+        "knplabs/knp-menu" : "~1.1",
         "knplabs/knp-menu-bundle": "1.1.2",
         "knplabs/knp-paginator-bundle":"2.4.*"
     },
