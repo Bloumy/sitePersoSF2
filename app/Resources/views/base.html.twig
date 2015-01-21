@@ -15,16 +15,22 @@
     {% block stylesheets %}{% endblock %}
 
 
-    </head>
+</head>
 
-    <body>
+<body class="container">
 
-        {#   contenu du menu  principal #}
-        {% block main_menu %}{% endblock %}
+    {#   contenu du menu  principal #}
+    {% block main_menu %} 
+        {{ knp_menu_render('main', { 'style': 'tabs','currentClass': 'active' }) }}
+    {% endblock %}
 
-        {# contenu du fil d'ariane   #}
-        {% block breadcrum %}{% endblock %}
-
+    {# contenu du fil d'ariane   #}
+    {% block breadcrumb %}
+        <ol class="breadcrumb">
+            <li class="active">Accueil</li>
+        </ol>
+    {% endblock %}
+    
         {# Messages flashbag  #}
         {% block flashMessages %}
             {% for flashMessage in app.session.flashbag.get('error') %}
@@ -38,18 +44,18 @@
             {% endfor %}
         {% endblock %}
 
-        <div id="global-container">
-            {# sous menu #}
-            {% block sousMenu %}{% endblock %}
-            {# Contenu   #}
-            {% block body %}{% endblock %}
-        </div>
-        <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-        <script src="{{ asset('js/jquery.js') }}"></script>
-        <!-- Include all JavaScripts, compiled by Assetic -->
-        <script src="{{ asset('js/bootstrap.js') }}"></script>
 
-    {% block javascripts %}{% endblock %}
+        {# sous menu #}
+    {% block sousMenu %}{% endblock %}
+    {# Contenu   #}
+{% block body %}{% endblock %}
+</div>
+<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+<script src="{{ asset('js/jquery.js') }}"></script>
+<!-- Include all JavaScripts, compiled by Assetic -->
+<script src="{{ asset('js/bootstrap.js') }}"></script>
 
-    </body>
+{% block javascripts %}{% endblock %}
+
+</body>
 </html>

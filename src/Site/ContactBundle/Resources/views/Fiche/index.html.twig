@@ -2,8 +2,12 @@
 
 
 
-{% block breadcrum %}
-    <p>Contact >> Fiche contact</p>
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('site_home') }}">Accueil</a></li>
+        <li><a href="{{ path('contact') }}">Contact</a></li>
+        <li class="active">Contact</li>
+    </ol>
 {% endblock %}
 
 {% block body %}

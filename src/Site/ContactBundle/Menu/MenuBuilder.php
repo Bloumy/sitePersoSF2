@@ -1,7 +1,6 @@
 <?php
 
 namespace Site\ContactBundle\Menu;
-use Knp\Menu\MenuItem;
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 
