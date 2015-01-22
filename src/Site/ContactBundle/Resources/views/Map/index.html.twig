@@ -1,5 +1,15 @@
-{% extends "::base.html.twig" %}
+{% extends 'SiteContactBundle::layout.html.twig' %}
+
+
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('site_home') }}">Accueil</a></li>
+        <li><a href="{{ path('contact') }}">Contact</a></li>
+        <li class="active">Carte</li>
+    </ol>
+{% endblock %}
+
 {% block body %}
-    {% include 'SiteContactBundle:MenuContact:index.html.twig' %}
-    contact
+    <h2>Carte</h2>
 {% endblock %}
