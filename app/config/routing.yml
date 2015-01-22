@@ -1,5 +1,5 @@
-accueil:
-    resource: "@AccueilBundle/Controller"
+site_accueil:
+    resource: "@SiteAccueilBundle/Controller"
     type:     annotation  
 
 site_contact:

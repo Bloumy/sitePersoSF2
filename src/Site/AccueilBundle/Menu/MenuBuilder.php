@@ -17,15 +17,13 @@ class MenuBuilder extends \Symfony\Component\DependencyInjection\ContainerAware 
     }
 
     public function createMainMenu(Request $request) {
-        
-        $routeName = $request->get('_route');
 
-
+        $bundlename = $request->get('_template')->get('bundle');
         $menu = $this->factory->createItem('root');
       
-        $menu->addChild('Accueil', array('route' => 'site_home'))->setCurrent($routeName == 'site_home');
-        $menu->addChild('Contact', array('route' => 'contact'))->setCurrent($routeName == 'contact');
-        $menu->addChild('Projets (contact_fiche pour le moment)', array('route' => 'fiche_contact'))->setCurrent($routeName == 'fiche_contact');
+        $menu->addChild('Accueil', array('route' => 'site_home'))->setCurrent($bundlename == 'SiteAccueilBundle');
+        $menu->addChild('Contact', array('route' => 'contact'))->setCurrent($bundlename == 'SiteContactBundle');
+        $menu->addChild('Projets', array('route' => 'fiche_contact'))->setCurrent($bundlename == 'SiteProjetsBundle');
 
 
         return $menu;
