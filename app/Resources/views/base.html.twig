@@ -12,12 +12,16 @@
 
         <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
-    {% block stylesheets %}{% endblock %}
 
+        <!-- style global de l'application -->
+        {% stylesheets '../app/Resources/public/css/*' %}
+        <link rel="stylesheet" type="text/css" charset="UTF-8" media="all" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+        
+        {% block stylesheets %}{% endblock %}
+    </head>
 
-</head>
-
-<body class="container">
+    <body class="main container">
 
     {#   contenu du menu  principal #}
     {% block main_menu %} 
@@ -30,17 +34,17 @@
             <li class="active">Accueil</li>
         </ol>
     {% endblock %}
-    
+
         {# Messages flashbag  #}
         {% block flashMessages %}
             {% for flashMessage in app.session.flashbag.get('error') %}
-                <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
+        <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
             {% endfor %}
             {% for flashMessage in app.session.flashbag.get('warning') %}
-                <div class="alert alert-warning"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
+        <div class="alert alert-warning"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
             {% endfor %}
             {% for flashMessage in app.session.flashbag.get('notice') %}
-                <div class="alert alert-info"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
+        <div class="alert alert-info"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
             {% endfor %}
         {% endblock %}
 
@@ -49,11 +53,11 @@
     {% block sousMenu %}{% endblock %}
     {# Contenu   #}
 {% block body %}{% endblock %}
-</div>
-<!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
-<script src="{{ asset('js/jquery.js') }}"></script>
-<!-- Include all JavaScripts, compiled by Assetic -->
-<script src="{{ asset('js/bootstrap.js') }}"></script>
+    </div>
+    <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <!-- Include all JavaScripts, compiled by Assetic -->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
 
 {% block javascripts %}{% endblock %}
 
