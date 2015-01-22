@@ -17,11 +17,21 @@
         {% stylesheets '../app/Resources/public/css/*' %}
         <link rel="stylesheet" type="text/css" charset="UTF-8" media="all" href="{{ asset_url }}"/>
         {% endstylesheets %}
-        
+
+         {% image '../app/Resources/public/background_images/background.jpg' 
+            filter='jpegoptim'
+            output='/background_images/background.jpg' %}
+
+         {% endimage %}
+
         {% block stylesheets %}{% endblock %}
     </head>
 
-    <body class="main container">
+
+    <body>
+
+
+        <div class="main container">
 
     {#   contenu du menu  principal #}
     {% block main_menu %} 
@@ -30,29 +40,31 @@
 
     {# contenu du fil d'ariane   #}
     {% block breadcrumb %}
-        <ol class="breadcrumb">
-            <li class="active">Accueil</li>
-        </ol>
+            <ol class="breadcrumb">
+                <li class="active">Accueil</li>
+            </ol>
     {% endblock %}
 
         {# Messages flashbag  #}
         {% block flashMessages %}
             {% for flashMessage in app.session.flashbag.get('error') %}
-        <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
+            <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
             {% endfor %}
             {% for flashMessage in app.session.flashbag.get('warning') %}
-        <div class="alert alert-warning"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
+            <div class="alert alert-warning"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
             {% endfor %}
             {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="alert alert-info"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
+            <div class="alert alert-info"><span class="glyphicon glyphicon-ok"></span> {{ flashMessage }}</div>
             {% endfor %}
         {% endblock %}
 
 
-        {# sous menu #}
-    {% block sousMenu %}{% endblock %}
-    {# Contenu   #}
-{% block body %}{% endblock %}
+            {# sous menu #}
+            {% block sousMenu %}{% endblock %}
+
+            {# Contenu   #}
+          {% block body %}{% endblock %}
+        </div>
     </div>
     <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="{{ asset('js/jquery.js') }}"></script>

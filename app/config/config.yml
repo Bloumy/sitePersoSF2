@@ -32,6 +32,8 @@ twig:
     form:
         resources:
             - BraincraftedBootstrapBundle:Form:bootstrap.html.twig
+    globals:
+        background: "%app.background%"
 
 knp_menu:
     twig:
@@ -52,6 +54,9 @@ assetic:
             file: %kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php
             apply_to: "\.less$"
         cssrewrite: ~
+        jpegoptim:
+            bin: path/to/jpegoptimy
+            strip_all: true
     
     assets:
         bootstrap_css:
