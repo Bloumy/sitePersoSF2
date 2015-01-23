@@ -27,9 +27,9 @@ class MenuBuilder extends \Symfony\Component\DependencyInjection\ContainerAware 
         $menu->addChild(' Contact', array('route' => 'contact'))
                 ->setLinkAttribute('class', 'glyphicon glyphicon-envelope')
                 ->setCurrent($bundlename == 'SiteContactBundle');
-        $menu->addChild(' Projets', array('route' => 'fiche_contact'))
+        $menu->addChild(' Projets', array('route' => 'projects'))
                 ->setLinkAttribute('class', 'glyphicon glyphicon-book')
-                ->setCurrent($bundlename == 'SiteProjetsBundle');
+                ->setCurrent($bundlename == 'SiteProjectsBundle');
 
 
         return $menu;

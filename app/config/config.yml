@@ -32,8 +32,6 @@ twig:
     form:
         resources:
             - BraincraftedBootstrapBundle:Form:bootstrap.html.twig
-    globals:
-        background: "%app.background%"
 
 knp_menu:
     twig:

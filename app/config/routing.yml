@@ -1,3 +1,7 @@
+site_projects:
+    resource: "@SiteProjectsBundle/Controller"
+    type:     annotation  
+
 site_accueil:
     resource: "@SiteAccueilBundle/Controller"
     type:     annotation  

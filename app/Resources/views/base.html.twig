@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,10 +18,9 @@
         <link rel="stylesheet" type="text/css" charset="UTF-8" media="all" href="{{ asset_url }}"/>
         {% endstylesheets %}
 
-         {% image '../app/Resources/public/background_images/background.jpg' 
+         {% image '../app/Resources/public/images/background.jpg' 
             filter='jpegoptim'
-            output='/background_images/background.jpg' %}
-
+            output='/images/background.jpg' %}
          {% endimage %}
 
         {% block stylesheets %}{% endblock %}
@@ -63,7 +62,13 @@
             {% block sousMenu %}{% endblock %}
 
             {# Contenu   #}
-          {% block body %}{% endblock %}
+            <div class="main content">
+            {% block body %}Pas de contenu pour le moment{% endblock %}
+            </div>
+            
+            <div class="footer">
+                <div class="breadcrumb">Tous gauchers réservés !</div>
+            </div>
         </div>
     </div>
     <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->

@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><a href="site_home">Accueil</a></li>
+    <li class="active">Projects</li>
+</ol>
+{% endblock %}
+
+{% block body %}
+
+<h2 class="page-header">Projets</h2>
+
+<p>
+    {% if  routes is empty  %}
+<p>Aucun projet pour le moment.</p>
+    {% endif %}
+
+    {% for route,routeAttr in routes %}
+<div class="img-thumbnail">
+    <h3>{{routeAttr.title|capitalize }}</h3>
+    <a href="{{ path(route) }}" class="link tooltip-link"
+       data-toggle="tooltip"
+       data-original-title="{{routeAttr.description|capitalize  }}">
+        <img src="{{asset('bundles/siteprojects/images/thumbmail/')~ route}}.PNG" alt="{{path(route)}}" >
+    </a>
+</div>
+    {% endfor %}
+</p>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    // Pour les info-bulles
+    $(document).ready(function() {
+        $(".tooltip-link").tooltip();
+    });
+</script>
+{% endblock %}

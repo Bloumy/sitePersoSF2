@@ -1,12 +1,16 @@
 {% extends "::base.html.twig" %}
 
 {% block breadcrumb %}
-    <ol class="breadcrumb">
-        <li><a href="site_home">Accueil</a></li>
-        <li class="active">Contact</li>
-    </ol>
+<ol class="breadcrumb">
+    <li><a href="site_home">Accueil</a></li>
+    <li class="active">Contact</li>
+</ol>
 {% endblock %}
 
 {% block sousMenu %}
     {% include 'SiteContactBundle:MenuContact:index.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <p>Vous chercez à me contacter ? Vous voici au bon endroit !</p>
 {% endblock %}
