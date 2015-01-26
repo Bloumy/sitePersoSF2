@@ -20,24 +20,26 @@ class DefaultController extends Controller {
         //liste les projets
         $routes = Array();
         $routerDebug = SiteProjectsBundle::getRouteCollection($this->container);
-        
+
         //par default
         $nomsDeRouteDesProjets = [];
         if ($this->container->hasParameter('app.projects.rootsOfProjects')) {
             $nomsDeRouteDesProjets = $this->container->getParameter('app.projects.rootsOfProjects');
         }
 
-        
 
 
         foreach ($routerDebug as $routeName => $routeAttributes) {
             $afficherEnTantQueProjet = false;
-            foreach ($nomsDeRouteDesProjets as $nomDeRouteDuProjet) {
-                $afficherEnTantQueProjet = preg_match('/^' . $nomDeRouteDuProjet . '$/', $routeName);
+            foreach ($nomsDeRouteDesProjets as $routeName2 => $projet) {
+
+                $nomDuProjet = $projet['title'];
+                $descriptionDuProjet = $projet['description'];
+                $afficherEnTantQueProjet = preg_match('/^' . $routeName2 . '$/', $routeName);
                 if ($afficherEnTantQueProjet) {
                     $routes[$routeName] = $routeAttributes;
-                    $routeAttributes->title = 'title';
-                    $routeAttributes->description = 'description';
+                    $routeAttributes->title = $nomDuProjet;
+                    $routeAttributes->description = $descriptionDuProjet;
                 }
             }
         }
