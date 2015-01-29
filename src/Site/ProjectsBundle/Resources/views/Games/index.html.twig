@@ -1,0 +1,23 @@
+{% extends 'SiteProjectsBundle::layout.html.twig' %}
+
+{% block title %}SiteProjectsBundle:Map:showMap{% endblock %}
+
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><a href="{{path('site_home')}}">Accueil</a></li>
+    <li><a href="{{path('projects')}}">Projets</a></li>
+    <li class="active">Jeux Vidéos</li>
+</ol>
+{% endblock %}
+
+
+{% block body %}
+<h1>Liste des jeux vidéos Web</h1>
+
+<ul>
+    <li>
+        <a href="{{ path('project_games_show', {'game_id': 1}) }}">Entrainement de conception html 5 canvas</a>
+    </li>
+</ul>
+{% endblock %}
