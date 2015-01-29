@@ -3,28 +3,29 @@
 {% block title %}Jeu video n°{{game_id}}{% endblock %}
 
 {% block javascripts %}
-{#{{parent()}}#}
-<script src="{{ asset('bundles/siteprojects/js/game_'~game_id) }}"></script>
+    {#{{parent()}}#}
+    {% include 'SiteProjectsBundle:Games:canvas_config.js.twig' %}
+    <script src="{{ asset('bundles/siteprojects/js/game_'~game_id~'.js') }}"></script>
 {% endblock %}
 
 {% block breadcrumb %}
-<ol class="breadcrumb">
-    <li><a href="{{path('site_home')}}">Accueil</a></li>
-    <li><a href="{{path('projects')}}">Projets</a></li>
-    <li><a href="{{path('project_games_index')}}">Jeux Vidéos</a></li>
-    <li class="active">Jeu video n°{{game_id}}</li>
-</ol>
+    <ol class="breadcrumb">
+        <li><a href="{{path('site_home')}}">Accueil</a></li>
+        <li><a href="{{path('projects')}}">Projets</a></li>
+        <li><a href="{{path('project_games_index')}}">Jeux Vidéos</a></li>
+        <li class="active">Jeu video n°{{game_id}}</li>
+    </ol>
 {% endblock %}
 
 
 {% block body %}
-<h1>Titre du jeu</h1>
+    <h1>Titre du jeu</h1>
 
-<html>
-    <body>
-        <canvas id="theCanvas" width="800" height="600"  style="border: 1px solid #000000;">
-            Votre navigateur ne supporte pas le Canvas HTML5
-        </canvas>
-    </body>
-</html>
+    <html>
+        <body>
+            <canvas id="theCanvas" class="col-xs-8 col-xs-offset-2" width="800" height="600"  style="border: 1px outset #428bca;padding:0;">
+                Votre navigateur ne supporte pas le Canvas HTML5
+            </canvas>
+        </body>
+    </html>
 {% endblock %}
