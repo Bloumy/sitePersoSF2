@@ -1,34 +1,110 @@
 
+var context = null;
 
-var context2D = null;
-var context3D = null;
-
-
-function initContext(dimention) {
+//
+function initContext(canvas_id, dimention) {
     if (!dimention) {
         dimention = '2d';
     }
-    return document.getElementById('theCanvas').getContext(dimention);
+    return document.getElementById(canvas_id).getContext(dimention);
 }
-;
 
-function customiseContext2D(context2D) {
-//    context2D.strokeStyle = "#0000FF";
-//    context2D.rect(200, 200, 600, 800); // x, y, width, height
-//    context2D.stroke();
-
-    var imagePanoramique;
-    var imagePanoramiqueX = 0;
-    var imagePanoramiqueY = 0;
-
-    imagePanoramique = new Image();
-    imagePanoramique.src = sourceImagePanoramique;
-    context2D.drawImage(imagePanoramique, imagePanoramiqueX, imagePanoramiqueY);
+function customiseContext2D(context) {
+    //opérations
+    return context;
 }
+
+document.onkeydown = function (event) {
+    var key_pressed;
+    if (event === null) {
+        key_pressed = window.event.keyCode;
+    }
+    else {
+        key_pressed = event.keyCode;
+    }
+    switch (key_pressed) {
+        case 37:
+            left = true;
+            break;
+        case 38:
+            up = true;
+            break;
+        case 39:
+            right = true;
+            break;
+        case 40:
+            down = true;
+            break;
+    }
+};
+
+document.onkeyup = function (event) {
+    var key_pressed;
+    if (event === null) {
+        key_pressed = window.event.keyCode;
+    }
+    else {
+        key_pressed = event.keyCode;
+    }
+    switch (key_pressed) {
+        case 37:
+            left = false;
+            break;
+        case 38:
+            up = false;
+            break;
+        case 39:
+            right = false;
+            break;
+        case 40:
+            down = false;
+            break;
+    }
+};
+
+
+var x_speed = 0;
+var y_speed = 0;
+var y = 400;
+var x = 300;
+var left = false;
+var right = false;
+var up = false;
+var down = false;
+var friction = 0.95;
+
+function on_enter_frame() {
+    if (left) {
+        x_speed--;
+    }
+    if (right) {
+        x_speed++;
+    }
+    if (up) {
+        y_speed--;
+    }
+    if (down) {
+        y_speed++;
+    }
+//    context=game_area.getContext('2d');
+    context.clearRect(0, 0, 800, 600);
+    context.beginPath();
+    context.fillStyle = "#000000";
+    context.arc(x, y, 30, 0, Math.PI * 2, true);
+    context.closePath();
+    context.fill();
+    x += x_speed;
+    y += y_speed;
+    x_speed *= 0.98;
+    y_speed *= 0.98;
+}
+
+
 
 $(document).ready(function () {
-    context2D = initContext('2d');
+    context = initContext('canvas_id', '2d');
+    context = customiseContext2D(context);
+    setInterval(on_enter_frame, 30);
+
 
 });
-//
-////http://www.faire-des-jeux.com/html5-tutorial-canvas/
