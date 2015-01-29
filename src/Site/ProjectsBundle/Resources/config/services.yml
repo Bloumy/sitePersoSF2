@@ -1,1 +1,13 @@
 services:
+    projects.menu_builder:
+        class: Site\ProjectsBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    projects.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: projects.menu_builder
+        factory_method: createProjectsMenu
+        arguments: ["@request","@service_container"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: projects } # L'alias est très important, c'est avec lui que vous appellerez votre menu dans la vue

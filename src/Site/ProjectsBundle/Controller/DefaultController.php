@@ -35,11 +35,13 @@ class DefaultController extends Controller {
 
                 $nomDuProjet = $projet['title'];
                 $descriptionDuProjet = $projet['description'];
+                $miniatureDuProjet = $projet['thumbmail'];
                 $afficherEnTantQueProjet = preg_match('/^' . $routeName2 . '$/', $routeName);
                 if ($afficherEnTantQueProjet) {
                     $routes[$routeName] = $routeAttributes;
                     $routeAttributes->title = $nomDuProjet;
                     $routeAttributes->description = $descriptionDuProjet;
+                    $routeAttributes->thumbmail = $miniatureDuProjet;
                 }
             }
         }

@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><a href="{{path('site_home')}}">Accueil</a></li>
+    <li class="active">Projets</li>
+</ol>
+{% endblock %}
+
+{% block sousMenu %}
+    {% include 'SiteProjectsBundle:MenuProjects:index.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <p>Vous chercez à me contacter ? Vous voici au bon endroit !</p>
+{% endblock %}

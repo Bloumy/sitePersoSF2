@@ -39,7 +39,7 @@
 
     {# contenu du fil d'ariane   #}
     {% block breadcrumb %}
-            <ol class="breadcrumb">
+            <ol class="breadcrumb row">
                 <li class="active">Accueil</li>
             </ol>
     {% endblock %}
@@ -58,14 +58,17 @@
         {% endblock %}
 
 
+            <h2 class="page-header">{% block pageheader %}{% endblock %}</h2>
             {# sous menu #}
             {% block sousMenu %}{% endblock %}
 
             {# Contenu   #}
             <div class="main content">
-            {% block body %}Pas de contenu pour le moment{% endblock %}
+                <div class="content row">
+                    {% block body %}Pas de contenu pour le moment{% endblock %}
+                </div>
             </div>
-            
+
             <div class="footer">
                 <div class="breadcrumb">Tous gauchers réservés !</div>
             </div>

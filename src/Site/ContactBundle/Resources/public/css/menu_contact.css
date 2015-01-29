@@ -1,0 +1,67 @@
+#menu_contact ul{ 
+    position:relative; 
+    /*height:2em;*/ 
+    /*margin:30px 100px;*/ 
+    /*padding:0;*/ 
+    white-space:nowrap; 
+}
+#menu_contact ul li{ 
+    display:inline; 
+    text-align:center; 
+}
+
+#menu_contact ul li:nth-child(1) a{width:5em;} /* fiche */
+#menu_contact ul li:nth-child(2) a{width:9em;} /* annonces */
+
+
+#menu_contact ul li a{ 
+    display:inline-block; 
+    box-sizing:border-box; 
+    padding:.4em .2em; 
+    /*color:#51C3FA;*/
+    text-decoration:none;
+    text-shadow:0 1px 0 white;
+    background-color:transparent;
+    transition:background-color .3s ease;
+}
+
+#menu_contact ul li a:hover,ul li a:focus{ 
+    color:#c351fa; 
+    background-color:rgba(255,255,255,.4); 
+    transition:background-color .3s ease .4s; 
+}
+
+#menu_contact ul li a:focus{ 
+    border-bottom:3px solid #c351fa; 
+}
+
+#menu_contact ul li:last-child::after{ 
+    content:""; 
+    position:absolute; 
+    left:0px; 
+    bottom:-3px; 
+
+    border-bottom:1px solid rgba(255,255,255,.8); 
+    background:#ccc;
+    display:block; 
+    width:2em;
+    height:4px;
+
+
+    transition: all .5s ease;
+}
+
+ #menu_contact ul li:hover ~ li:last-child::after, ul li:last-child:hover::after{
+     background:#C351FA;
+ }
+ 
+ #menu_contact ul li:nth-child(1):hover ~ li:last-child::after{
+     left:0;
+     width:5em;
+ }
+ 
+ #menu_contact ul li:last-child:hover::after{
+     left:5em;
+     width:9em;
+ }
+  

@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends 'SiteProjectsBundle::layout.html.twig' %}
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
@@ -17,16 +17,23 @@
     {% endif %}
 
     {% for route,routeAttr in routes %}
-<div class="img-thumbnail">
+<div class="img-div" >
     <h3>{{routeAttr.title|capitalize }}</h3>
     <a href="{{ path(route) }}" class="link tooltip-link"
        data-toggle="tooltip"
        data-original-title="{{routeAttr.description|capitalize  }}">
-        <img src="{{asset('bundles/siteprojects/images/thumbmail/')~ route}}.PNG" alt="{{path(route)}}" >
+        <img src="{{asset('bundles/siteprojects/images/thumbmail/')~ routeAttr.thumbmail}}" 
+             alt="{{routeAttr.description}}" 
+             class="img-thumbnail" >
     </a>
 </div>
     {% endfor %}
 </p>
+{% endblock %}
+
+
+{% block stylesheets %}
+<link href="{{ asset('/bundles/siteprojects/css/projects.css') }}" rel="stylesheet" media="screen" /> 
 {% endblock %}
 
 {% block javascripts %}
@@ -34,6 +41,11 @@
     // Pour les info-bulles
     $(document).ready(function() {
         $(".tooltip-link").tooltip();
+
+        setTimeout(function() {
+            $(".img").addClass('img-thumbnail');
+        }, 500);
+
     });
 </script>
 {% endblock %}

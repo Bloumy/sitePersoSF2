@@ -6,34 +6,23 @@
 </ol>
 {% endblock %}
 
+{% block pageheader %}Accueil{% endblock %}
+
 {% block body %}
-<h2 class="page-header">Accueil</h2>
 
-<p>
-    When to use
+    <div class="row banniere" style="background-color: pink;"> banniere</div>
 
-Use on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation. Responsive utilities should not be used with tables, and as such are not supported.
-Responsive utilities test case
+    <div class="col-xs-12 col-md-9" style="background-color: green;">
+        Images are very common in modern web design. So styling images and placing it properly on the web pages is very important for improving the user experience.
 
-Resize your browser or load on different devices to test the above classes.
-Visible on...
+        Using the Bootstrap built-in classes you can easily style images such as making the round cornered or circular images, or give them effect like thumbnails.
+    </div>
 
-Green checkmarks indicate that class is visible in your current viewport.
-
-    Phone
-    Tablet
-    Desktop✔ Desktop
-
-Hidden on...
-
-Here, green checkmarks indicate that class is hidden in your current viewport.
-
-    Phone✔ Phone
-    Tablet✔ Tablet
-    Desktop
+    <div class="col-xs-12 col-md-3" style="background-color: yellow;">
+        <p>News</p>
+    </div>
 
 
-</p>
 {% endblock %}
 
 

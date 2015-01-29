@@ -1,0 +1,17 @@
+{% extends 'SiteProjectsBundle::layout.html.twig' %}
+
+{% block title %}SiteProjectsBundle:Map:showMap{% endblock %}
+
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><a href="{{path('site_home')}}">Accueil</a></li>
+    <li><a href="{{path('projects')}}">Projets</a></li>
+    <li class="active">Carte</li>
+</ol>
+{% endblock %}
+
+
+{% block body %}
+<h1>Welcome to the Map:showMap page</h1>
+{% endblock %}

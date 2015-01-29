@@ -11,6 +11,13 @@
     {% include 'SiteContactBundle:MenuContact:index.html.twig' %}
 {% endblock %}
 
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" charset="UTF-8" media="screen" href="{{ asset('bundles/sitecontact/css/menu_contact.css') }}"/>
+{% endblock %}
+
+{% block pageheader %}Contact{% endblock %}
+
 {% block body %}
-    <p>Vous chercez à me contacter ? Vous voici au bon endroit !</p>
+<p>Vous chercez à me contacter ? Vous voici au bon endroit !</p>
 {% endblock %}
